@@ -35,4 +35,4 @@ int main()
         p=p->next;
     }
     return 0;
-}
+}//paslanmışız :))
