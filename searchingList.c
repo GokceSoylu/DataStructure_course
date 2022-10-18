@@ -31,7 +31,7 @@ int main()
     }
     printf("\nwhic age do you want to search  ");
     scanf("%d",&age);
-    i=search(head,age);<
+    i=search(head,age);
     if(i==0)
         printf("\nthe age deos not exist");
     else
