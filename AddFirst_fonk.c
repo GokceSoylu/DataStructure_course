@@ -43,7 +43,8 @@ std* add_first(std *head, int age)
     head=new;
     new->age=age;
     return head;    //! NEDEEEN RETURN HEAD GEREKLİ !
-}
+}                      //?çünkü pointer her ne kadar adres taşıyodam olsa. fonksiyona gönderirikennlendisini adresle göndermekmiyoruz
+                    //? tuttuğu adresi kopylalayıp göderiyoruz. bu yüzden pointerin kendisinde(head'de)değişiklik yaptığımızda bu kalıcı olmaz.
 void print(std *head)
 {
     std *p=head;

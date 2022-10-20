@@ -1,4 +1,4 @@
-#include <stdio.h>//! return'e gerek yok
+#include <stdio.h>
 #include <stdlib.h>
 struct Student
 {
