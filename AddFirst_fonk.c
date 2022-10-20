@@ -11,6 +11,7 @@ void print(std *);
 int main()
 {
     std *head=(std*)malloc(sizeof(std)), *p=(std*)malloc(sizeof(std));
+    head->next=NULL;        //change
     int i, age;
     for(i=0;i<4;i++)
     {
