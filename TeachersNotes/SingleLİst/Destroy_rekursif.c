@@ -1,5 +1,5 @@
 //! neden ilk iki eleman silinmiyor
-//* adresleri yazdırıp gerçekten head adres tutumaya mı dec-vam ediyor diye bakabiliriz 
+//* adresleri yazdırıp gerçekten head adres tutumaya mı devam ediyor diye bakabiliriz 
 #include <stdio.h>
 #include <stdlib.h>
 struct Student
@@ -33,12 +33,8 @@ int main()
     }
     p->next=NULL;
     print(head);
-    printf("\nbeforo dest head = %d\n",head);
     head=destroy(head);
-    printf("\nafrer destroy ");
-    printf("head = %d\n",head);
-    printf("\n%d\n",head->age);
-    print(head);
+    return 0;
 }
 std* destroy(std* head)
 {
@@ -63,4 +59,4 @@ void print(std *head)
         p=p->next;
     }
 }
-//peki list dairesel olsa nasışçyazarız?
+//peki list dairesel olsa nasıl yazarız?
