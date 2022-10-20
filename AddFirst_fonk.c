@@ -45,9 +45,8 @@ std* add_first(std *head, int age)
 }
 void print(std *head)
 {
-    std *p=(std*)malloc(sizeof(std));
-    p=head;
-    while(p!=NULL)
+    std *p=head;
+    while(p->next!=NULL)
     {
         printf("\n%d",p->age);
         p=p->next;
