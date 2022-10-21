@@ -1,28 +1,20 @@
-#include <stdio.h>//!WORG
+#include <stdio.h>
 #include <stdlib.h>
-struct node
+struct Node 
 {
     int data;
-    struct node *next;
+    struct Node *next;
 };
-struct node * destroy(struct node * head)
-{
-    struct node *tmp=head;//her node'u tek tek silmek
-    while(head!=NULL)
-    {
-        head=head->next;
-        free(tmp);
-        tmp=head;
-    }
-    return head;//retun NULL; both are same
-}
+typedef struct Node node;
+node* reverse(node *);
+void print(node *);
 int main()
 {
-    struct node *head, *p=(struct node*)malloc(sizeof(struct node));
-    int i, member;
-    printf("\nmember ");
-    scanf("%d",&member);
-    for(i=0;i<member;i++)
+    node *head=NULL, *p=(node*)malloc(sizeof(node));
+    int i, c;
+    printf("\nnumber of nodes ");
+    scanf("%d",&c);
+    for(i=0;i<c;i++)
     {
         if(head==NULL)
         {
@@ -31,13 +23,36 @@ int main()
         }
         else
         {
-            p->next=(struct node*)malloc(sizeof(struct node));
+            p->next=(node*)malloc(sizeof(node));
             p=p->next;
             scanf("%d",&p->data);
         }
     }
-    //print(head);
-    head=destroy(head);
-    //printf("\nafter dest %d",head->data);
+    p->next=NULL;
+    print(head);
+    head=reverse(head);
+    print(head);
     return 0;
+}
+node *reverse(node *head)
+{
+    node *p=head->next, *pre=head, *q;
+    while(p!=NULL)
+    {
+        q=p->next;
+        p->next=pre;
+        pre=p;
+        p=q;
+    }
+    head->next=NULL;
+    return pre;
+}
+void print(node *head)
+{
+    printf("\n");
+    while(head!=NULL)
+    {
+        printf("\n%d",head->data);
+        head=head->next;
+    }
 }
