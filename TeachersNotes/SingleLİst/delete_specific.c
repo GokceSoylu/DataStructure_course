@@ -40,7 +40,7 @@ node* delete(node *head, int data)//basta ortada sonda bos tek eleman
             pre=delete;
             delete=delete->next;
         }    
-        if(control==1)//bulunmadan assağıdaki kodu çalıştırrısa seg faoult veriri pre->next=NULL çünkü.
+        if(control==1)//bulunmadan assağıdaki kodu çalıştırrısa seg faoult verir pre->next=NULL çünkü.
             pre->next=pre->next->next;
     }
     if(control==0)
