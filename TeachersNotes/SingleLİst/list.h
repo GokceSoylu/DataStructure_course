@@ -57,3 +57,35 @@ int rekursif_search(node *head, int data)   //? TRY
     else
        rekursif_search(head->next, data);
 }
+int count(node *head)
+{
+    int counter=0;
+    while(head!=NULL) 
+    {
+        head=head->next;
+        counter++;
+    }
+    return counter;
+}
+int rekursif_count(node *head)
+{
+    if(head==NULL)
+        return 0;
+    return rekursif_count(head->next)+1;
+}
+void print(node *head)
+{
+    printf("\n");
+    while(head!=NULL)
+    {
+        printf("\n%d",head->data);
+        head=head->next;
+    }
+}
+void rekursif_print(node *head)
+{
+    if(head==NULL)
+        return ;
+    printf("\n%d",head->data);
+    rekursif_print(head->next);
+}
