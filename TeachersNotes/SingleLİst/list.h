@@ -38,6 +38,21 @@ node* addLast(node* head, int data)
     pp->next=p;
     return head;
 }
+node* node_search(node *head, int data) //? TRY
+{
+    node *p=head;
+    if(head==NULL)
+        printf("\nthe list is empty");
+    else 
+    {
+        while(head!=NULL)
+        {
+            if(head->data==data) return head;
+            head=head->next;
+        }
+    }
+    return NULL;
+}
 int search(node *head, int data)
 {
     while(head!=NULL)
@@ -88,4 +103,114 @@ void rekursif_print(node *head)
         return ;
     printf("\n%d",head->data);
     rekursif_print(head->next);
+}
+node* delet(node *head, int data)//basta ortada sonda bos tek eleman
+{
+    node *delet=head, *pre;
+    int control=0;//bu olmadığında 
+    if(head==NULL)//boşsa normalde olmasada hata almayız ancak boş olma durumda belirtmek istedim.
+    {
+        printf("\nthe list is empty");
+        return head;
+    }
+    else if(head->data==data)
+    {
+        head=head->next;
+        control=1;
+    }
+    else if(head->next==NULL)//tek elemanlıysa
+    {
+        if(head->data==data)
+        {
+            head=head->next;
+            control=1;
+        }
+    } 
+    else
+    {
+        while(delet!=NULL)
+        {
+            if(delet->data==data)
+            {
+                control=1;
+                break;
+            }
+            pre=delet;
+            delet=delet->next;
+        }    
+        if(control==1)//bulunmadan assağıdaki kodu çalıştırrısa seg faoult verir pre->next=NULL çünkü.
+            pre->next=pre->next->next;
+    }
+    if(control==0)
+        printf("\nthe value could not be found");
+    else
+        free(delet);
+    return head;
+}
+node* destroy(node * head)
+{
+    node *delet;
+    while(head!=NULL)
+    {
+        delet=head;
+        head=head->next;
+        free(delet);
+    }
+    return head;
+}
+node* merch(node* head1, node *head2)
+{
+    node *p=head1;
+    if(head1==NULL)
+    {
+        head1=head2;
+        return head1;
+    }
+    while(p->next!=NULL) p=p->next;
+    p->next=head2;
+    return head1;     
+}
+node* rekursif_destroy(node* head)
+{
+    if(head==NULL)
+        return head;
+    rekursif_destroy(head->next);
+    free(head);
+}
+void reverse_print(node *head)
+{
+    node *p=NULL, *tmp;
+    while(head!=NULL)
+    {
+        tmp=(node*)malloc(sizeof(node));
+        tmp->data=head->data;
+        tmp->next=p;
+        p=tmp;
+        head=head->next;
+    }
+    while(p!=NULL)
+    {
+        printf("\n%d",p->data);
+        p=p->next;
+    }
+}
+void rekursif_reversePrint(node *head)
+{
+    if(head==NULL)
+        return;
+    rekursif_reversePrint(head->next);
+    printf("\n%d",head->data);
+}
+node *reverse(node *head)
+{
+    node *p=head->next, *pre=head, *q;
+    while(p!=NULL)
+    {
+        q=p->next;
+        p->next=pre;
+        pre=p;
+        p=q;
+    }
+    head->next=NULL;
+    return pre;
 }
