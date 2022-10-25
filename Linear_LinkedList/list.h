@@ -6,6 +6,29 @@ struct Node
     struct Node *next;
 };
 typedef struct Node node;
+node* create(node *head)
+{
+    int c, i;
+    node *p=(node*)malloc(sizeof(node));
+    printf("\nhow much node do want to create ");
+    scanf("%d",&c);
+    for(i=0;i<c;i++)
+    {
+        if(i==0)
+        {
+            head=p;
+            scanf("%d",&p->data);
+        }
+        else
+        {
+            p->next=(node*)malloc(sizeof(node));
+            p=p->next;
+            scanf("%d",&p->data);
+        }
+    }
+    p->next=NULL;
+    return head;
+}
 node* add(node *head, int data, int side)   //? TRY
 {
     int i;
