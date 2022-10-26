@@ -15,8 +15,8 @@ int main()
     head=add(head,25,3);
     print(head);
     p=node_search(head, 25);
-    printf("\n p->data = ",p->data);
-    printf("\n25 var mi =  ",rekursif_search(head,25));
+    printf("\n p->data = %d",p->data);
+    printf("\n25 var mi =  %d",rekursif_search(head,25));
 
     return 0;
 }

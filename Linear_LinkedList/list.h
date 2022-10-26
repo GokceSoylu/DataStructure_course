@@ -29,12 +29,12 @@ node* create(node *head)
     p->next=NULL;
     return head;
 }
-node* add(node *head, int data, int side)   //? TRY
+node* add(node *head, int data, int side)   
 {
     int i;
     node *p=head, *q=(node*)malloc(sizeof(node));
     q->data=data;
-    for(i=0;i<side-1;i++) p=p->next;
+    for(i=1;i<side-1;i++) p=p->next;
     q->next=p->next;
     p->next=q;
     return head;
@@ -61,7 +61,7 @@ node* addLast(node* head, int data)
     pp->next=p;
     return head;
 }
-node* node_search(node *head, int data) //? TRY
+node* node_search(node *head, int data) 
 {
     node *p=head;
     if(head==NULL)
@@ -86,7 +86,7 @@ int search(node *head, int data)
     }
     return 0;
 }
-int rekursif_search(node *head, int data)   //? TRY
+int rekursif_search(node *head, int data)   
 {
     if(head==NULL)
         return 0;
