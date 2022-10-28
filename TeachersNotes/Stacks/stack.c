@@ -5,9 +5,12 @@ struct Node
     int data;
      struct Node *next;
 };
-typedef struct 
+struct stack
 {
     int cnt;
     struct Node *top;
-}stack;
+};
+int main()
+{
 
+}
