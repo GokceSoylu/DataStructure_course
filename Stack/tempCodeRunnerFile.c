@@ -1,0 +1,1 @@
+rsiğimiz için fonksiyon içerisinde pointer gibi davaranır. 

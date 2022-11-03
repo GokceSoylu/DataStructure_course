@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define STACK_SIZE 5
-typedef struct
+struct Node
 {
     int data;
-    node *next;
-}node;
+    struct Node *next;
+};
+typedef struct Node node;
 typedef struct 
 {
     int cnt;
     node *top;
 }stack;
 
-void initilize(stack *stc)
+void initialize(stack *stc)
 {
     stc->cnt=0;
     stc->top=NULL;
@@ -20,7 +21,7 @@ void initilize(stack *stc)
 
 void push(stack *stc, int x)
 {
-    if(stc->cnt==STACK_SIZE-1)
+    if(stc->cnt==STACK_SIZE)
         printf("\nthe stack is full\n");
     else
     {
