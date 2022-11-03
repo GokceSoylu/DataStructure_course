@@ -56,7 +56,7 @@ int main()
         }
     }
     p->next=head;
-    print(head);//08505779999
+    print(head);
     printf("\n");
     head=addfront(head,10);
     printf("\nafter\n");

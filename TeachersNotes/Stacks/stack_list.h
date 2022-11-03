@@ -18,7 +18,7 @@ void initialize(stack *stc)
 }
 void push(stack *stc, int data)
 {
-    if(stc->cnt==STACK_SIZE)
+    if(stc->cnt==STACK_SIZE-1)
         printf("\nthe stack is full");
     else
     {
