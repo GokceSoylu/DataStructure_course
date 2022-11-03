@@ -12,7 +12,7 @@ void reseting(stack *stc)
 }
 void push(stack *stc, int c)
 {
-    if(stc->top==STACK_SIZE)
+    if(stc->top==STACK_SIZE-1)
     {
         printf("\nthe stack is full\n");
         return;
