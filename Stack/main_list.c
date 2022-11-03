@@ -14,7 +14,7 @@ int main()
         push(&s,(s.cnt+1)*data);
     }
     printf("\ntum stack'i doldurduğumuz içn artik counter = %d",s.cnt);//5
-    printf("\n\nsimdi de pop fonksiyonu sayesinde stack'in degerlerini silerken ekrana yazdıralım\n\n");
+    printf("\n\nsimdi de pop fonksiyonu sayesinde stack'in degerlerini silerken ekrana yazdiralim\n\n");
     for(i=0;i<5;i++)
         printf("\n%d",pop(&s));
     printf("\nstack'in tmamami bosaldi bu yuzden counter = %d",s.cnt);
