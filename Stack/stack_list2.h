@@ -1,3 +1,4 @@
+//todo from Sadi evren Şeker's videos
 #include <stdlib.h>
 #include <stdio.h>
 //stack_list.h dosyasında dersteki yöntem şeklinde yazmıştık burada ise daha farlı bir metod ile aynı fonksiyonları yazıyoruz
