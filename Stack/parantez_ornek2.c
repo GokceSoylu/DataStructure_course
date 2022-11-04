@@ -40,7 +40,7 @@ int main()
                 break;
             }
     }
-    if(s.cnt!=0) printf("\nyazilan ifade de parantez hatasi vardir");
-    else if(cnt==0) printf("\nyazilan ifade de parantez hatsi yoktur");
+    if(s.cnt!=0 && cnt==0) printf("\nyazilan ifade de parantez hatasi vardir");
+    if(s.cnt==0 && cnt==0) printf("\nyazilan ifade de parantez hatsi yoktur");
     return 0;
 }
