@@ -35,7 +35,7 @@ int pop(node *top)
         return -100;//bazı gerçekler değişmez :)
                     //return değeri gerektiği için rastgele bir sayı föndürdük. diğer dosyada(stack_list.h) da aynı yapmıstık
     } 
-    else if(top->next==NULL)
+    else if(top->next==NULL)//liste tek elemalı olma durumu. eğer bu kısmı eklemzsek alttaki while da sıkıntı yaşarız.
     {    
         int data=top->data;
         top=NULL;
