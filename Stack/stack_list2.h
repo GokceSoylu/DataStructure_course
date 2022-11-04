@@ -1,24 +1,48 @@
 #include <stdlib.h>
 #include <stdio.h>
-//diğer kütüphane dosyasında dersteki yöntem şeklinde yazmıştık burada ise daha farlı bir metod ile aynı fonksiyonları yazıyoruz
-//normalde stack listede her zaman başa ekleyip baştan siliyorduk. aslında mantık FIFO olayını sağlamak yani son gireni ilk sildikten sonra listenin neresine
-//kaydettiğinin bir önemi yok. burada listenin sonun aekleyip sonundan silicez.
-//çeşit çeşit staack fonksiyonları yazabilitriz deerste öğrendiğimizde stack'i adresle gondersik tüm değişiklikler kalııc oldu ancak fonksiyona
-//stack değig node* gonderirsek o zaman ponter dda değişiklik yapınca bunu returlememiz gerekir işte o zaman ya return yapıcaz yada son ekliyicz
-//push void yada node* döndürebilir sorun yok ancak pop int döndürmeli işte bu durum için ekleme silmeyi listenin sonunda yaparsak daah iyi olur :)
+//stack_list.h dosyasında dersteki yöntem şeklinde yazmıştık burada ise daha farlı bir metod ile aynı fonksiyonları yazıyoruz
+//derste listeyi bir struct yapısının içine oluşturduk bunu bir liste ve int counter değerlerini bir yapıda tutmka için yaptık
+//counter değeri kullnamak istemezsek listeyi bir structin içinde olutrumaya gerek yok. Nasıl yani sadece liste olutrurup buna stack mi diyicez?
+//evet liste bir stack'tir zaten :)). 
+//şimdi struct(struct  stack)olmadan oluşturduk o zaman fonlsiyonlara stack *stc değeri gönderemeyiz. fonksiyonlarımızın mantığı aynı kalmakla
+//beraber ufak değişiklikler yapıyoruz.
 struct node
 {
     int data;
     struct node *next;
 };
-struct stack
-{
-    int counter;
-    struct node *root, *top;
-};
 typedef struct node node;
-typedef struct stack stack;
-node* push(node *p, int data)//return void yapmak asıl mantık :))
+node* push(node *top, int data)
 {
-    
+    node *p=(node*)malloc(sizeof(node));
+    p->data=data;
+    p->next=NULL;
+    if(top==NULL)
+        top=p;
+    else
+    {
+        node *last=top;
+        while(last->next!=NULL) last=last->next;
+        last->next=p;
+    }
+    return top;
+}
+int pop(node *top)
+{
+    if(top==NULL)
+    {
+        printf("\nthe stack is empty ");
+        return -100;//bazı gerçekler değişmez :)
+                    //return değeri gerektiği için rastgele bir sayı föndürdük. diğer dosyada(stack_list.h) da aynı yapmıstık
+    } 
+    else
+    {
+        node *last, *iter=top;
+        while(iter->next->next!=NULL) iter=iter->next;
+        last=iter->next;
+        int data=last->data;
+        iter->next=NULL;
+        free(last);
+        return data;
+    }
 }
