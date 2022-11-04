@@ -27,15 +27,15 @@ node* push(node *top, int data)
     }
     return top;
 }
-int pop(node *top)
-{
-    if(top==NULL)
+int pop(node *top)//burada bir sıkıntımız var ilk düğmü hiç silemiyor
+{                  //çünkü bunun için top değerini NULL yapmalı ama return'lemediği için  
+    if(top==NULL)   //top değerinin değiştiremiyoruz.
     {
         printf("\nthe stack is empty ");
         return -100;//bazı gerçekler değişmez :)
                     //return değeri gerektiği için rastgele bir sayı föndürdük. diğer dosyada(stack_list.h) da aynı yapmıstık
     } 
-    else if(top->next==NULL)//liste tek elemalı olma durumu. eğer bu kısmı eklemzsek alttaki while da sıkıntı yaşarız.
+    if(top->next==NULL)//liste tek elemalı olma durumu. eğer bu kısmı eklemzsek alttaki while da sıkıntı yaşarız.
     {    
         int data=top->data;
         top=NULL;
@@ -43,12 +43,8 @@ int pop(node *top)
     }
     else
     {
-        node *last=top, *iter=last;
-        while(last->next!=NULL)
-        {
-            iter=last;
-            last=last->next;
-        } 
+        node *last=NULL, *iter=top;
+        while(iter->next->next!=NULL) iter=iter->next;
         last=iter->next;
         int data=last->data;
         iter->next=NULL;
