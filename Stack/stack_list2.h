@@ -35,10 +35,20 @@ int pop(node *top)
         return -100;//bazı gerçekler değişmez :)
                     //return değeri gerektiği için rastgele bir sayı föndürdük. diğer dosyada(stack_list.h) da aynı yapmıstık
     } 
+    else if(top->next==NULL)
+    {    
+        int data=top->data;
+        top=NULL;
+        return data;
+    }
     else
     {
-        node *last, *iter=top;
-        while(iter->next->next!=NULL) iter=iter->next;
+        node *last=top, *iter=last;
+        while(last->next!=NULL)
+        {
+            iter=last;
+            last=last->next;
+        } 
         last=iter->next;
         int data=last->data;
         iter->next=NULL;
