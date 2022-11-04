@@ -52,3 +52,11 @@ int pop(node *top)//burada bir sıkıntımız var ilk düğmü hiç silemiyor
         return data;
     }
 }
+void print(node *top)
+{
+    while(top!=NULL)
+    {
+        printf("\n-->%d",top->data);
+        top=top->next;
+    }
+}
