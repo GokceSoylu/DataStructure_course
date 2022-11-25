@@ -21,3 +21,15 @@ int main()
     printf("\n%d",pop(&stc));
     return 0;
 }
+//the stack is empty 
+//-100
+//4
+//the stack is full
+//4
+//2
+//4
+//6
+//8
+//10
+//the stack is empty 
+//-100
