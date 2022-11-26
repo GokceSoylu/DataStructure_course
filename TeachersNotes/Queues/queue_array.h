@@ -3,11 +3,6 @@
 #define QUEUE_SIZE 4
 typedef struct
 {
-    int data;
-    struct node *next;
-}node;
-typedef struct
-{
     int cnt;
     int front, rear;
     int data[QUEUE_SIZE];

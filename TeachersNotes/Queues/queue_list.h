@@ -34,14 +34,14 @@ int isEmpty(queue *q)
 }
 void enqueue(queue *q, int x)
 {
-    if(isFull(q))
+    if(isFull(q)==1)
         printf("\the queue is full");
     else
     {
         node *tmp=(node*)malloc(sizeof(node));
         tmp->data=x;
         tmp->next=NULL;
-        if(isEmpty(q))
+        if(isEmpty(q)==1)
             q->front=q->rear=tmp;
         else
         {
@@ -53,7 +53,7 @@ void enqueue(queue *q, int x)
 }
 int dequeue(queue *q)//tek elemamlıysa
 {
-    if(isEmpty(q))
+    if(isEmpty(q)==1)
     {
         printf("\nthe queue is empty");
         return -100;
