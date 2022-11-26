@@ -1,5 +1,5 @@
 leaf = çocuk yok
-sibling hemen ustteki parent aynı 
+sibling hemen ustteki parent aynı yani kardeş
 ancastors root a kdr giderken aynı yol uzerindekşler I G F E
 descendent aynı yol uzerinde torunu
 depth(x) x'ten köke kdrki yol ancak yola bakarken çizgilere sayarsın :))
