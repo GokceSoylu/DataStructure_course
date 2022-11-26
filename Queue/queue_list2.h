@@ -18,36 +18,54 @@ void initiaize(queue *q)
     q->cnt=0;
     q->front=q->rear=NULL;
 }
-void push(queue *q, int data)
+void enqueue(queue *q, int data)
 {
-    if(isFull(q))
+    if(isFULL(q))
         printf("\nthe queue is full");
     else
     {
         node *tmp=(node*)malloc(sizeof(node));
         tmp->data=data;
-        tmp->next=q->top;
-        q->top->tmp;
+        tmp->next=NULL;
+        if(isEMPTY(q))
+            q->front=q->rear=tmp;
+        else
+        {
+            q->rear->next=tmp;
+            q->rear=tmp;
+        }
         q->cnt++;
     }
 }
-int pop(queue *q)
+int dequeue(queue *q)
 {
-    if(isEmpty(q))
+    if(isEMPTY(q))
     {
         printf("\nthe queue is empty");
         return -100;
     }
     else
     {
-        node *dlt=q->top;
-        q->top=q->top->next;
+        int data=q->front->data;
+        node *dlt=q->front;
+        q->front=q->front->next;
         free(dlt);
         q->cnt--;
+        return data;
     }
+   
 }
-int isFull(queue *q)
+int isFULL(queue *q)
 {
-    if(q->cnt==QUEUE_SIZE) return 1;
-    else return 0;
+    if(q->cnt==QUEUE_SIZE) 
+        return 1;
+    else 
+        return 0;
+}
+int isEMPTY(queue *q)
+{
+    if(q->cnt==0) 
+        return 1;
+    else 
+        return 0;
 }
