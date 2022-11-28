@@ -11,7 +11,7 @@ node* createList(int data)
 {
     node *head=(node*)malloc(sizeof(node));
     head->pre=NULL;
-    head->pre=NULL;
+    head->next=NULL;
     head->data=data;
     return head;
 }
