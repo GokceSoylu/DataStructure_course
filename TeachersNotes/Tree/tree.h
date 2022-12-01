@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//max eelman sayısı 2^h-1 h=height
 struct node
 {
     int data;
