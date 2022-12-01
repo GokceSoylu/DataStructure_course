@@ -52,7 +52,7 @@ int pop(stack *stc)
 }
 int isEmpty(stack *s)
 {
-    if(s->cnt==0) return 1;
+    if(s->cnt<=0) return 1;
     else return 0;
 }
 int isFULL(stack *s)
