@@ -50,6 +50,14 @@ int pop(stack *stc)
         return x;
     }
 }
-
-
+int isEmpty(stack *s)
+{
+    if(s->cnt==0) return 1;
+    else return 0;
+}
+int isFULL(stack *s)
+{
+    if(s->cnt==STACK_SIZE) return 1;
+    else return 0;
+}
 
