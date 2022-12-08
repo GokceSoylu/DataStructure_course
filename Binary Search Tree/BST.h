@@ -72,3 +72,27 @@ int min(BST root)
     while(root->left!=NULL) root=root->left;
     return root->data;
 }
+BST delete(BST root,int data)
+{
+    if(root==NULL) return NULL;
+    if(root->data == data) 
+    {
+        if(root->right==NULL && root->left==NULL) return NULL;
+        if(root->right!=NULL)
+        {
+            root->data=min(root->right);
+            root->right=delete(root->right,min(root->right));
+            return root;
+        }
+        root->data=max(root->left);
+        root->left=delete(root->left,max(root->left));
+        return root; 
+    }
+    if(data<root->data)
+    {
+        delete(root->left,data);
+        return root;
+    } 
+    root->right=delete(root->right,data);
+    return root;
+}

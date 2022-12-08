@@ -16,5 +16,9 @@ int main()
     else printf("\nyok");
     printf("\nmax = %d",max(root));
     printf("\nmin = %d",min(root));
+    root=delete(root,56);
+    traverse_pre(root);
+    printf("\nmax = %d",max(root));
+    printf("\nmin = %d",min(root));
     return 0;//perfect :))
 }
