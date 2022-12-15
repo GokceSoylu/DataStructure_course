@@ -8,4 +8,4 @@ heap=yükseklik bulunduğu yerden root'a kadarki dallar(çubuklar). o seviyedeki
 leaf=yaprak yani çocoksuz düğümler
 root= kök en baştaki düğüm
 
-binary tree de sayma ekleme yaparken her zaman rekurssif kullanırız. çünkü her seferinde hem sağa hem sola bakabilmek için döngüye iht,yaç olur.
+binary tree de sayma ekleme yaparken her zaman rekurssif kullanırız. çünkü her seferinde hem sağa hem sola bakabilmek için döngüye ihtiyaç olur.
