@@ -19,22 +19,28 @@ AVLTree* createNode(int data)
 }
 int max(int a, int b)
 {
-    return (a>b) ? a:b;
+    return (a>b)?a:b;
 }
 int height(AVLTree *node)
 {
     if(node==NULL) return 0;
     return node->height;
 }
+int getBalance(AVLTree *node)
+{
+    if(node==NULL) return 0;
+    return height(node->left)-height(node->right);
+}
+/*
 AVLTree* rightRotate(AVLTree *z)
 {
     AVLTree *y=z->left;
     
     z->left=y->right;
-   y->right=z;
+    y->right=z;
 
-    z->height=max(z->left->height,z->right->height);
-    y->height=max(y->left->height,y->right->height);
+    z->height=1+max(z->left->height,z->right->height);
+    y->height=1+max(y->left->height,y->right->height);
 
     return y;
 }
@@ -42,18 +48,38 @@ AVLTree* leftRotate(AVLTree *z)
 {
     AVLTree *x=z->right;
     
-    z->right=x->left;
     x->left=z;
 
     x->height=1+max(x->left->height,x->right->height);
-    z->height=1+max(z->left->height,z->right->height);
 
     return x;
 }
-int getBalance(AVLTree *node)
-{
-    if(node==NULL) return 0;
-    return height(node->left)-height(node->right);
+*/
+ 
+AVLTree* rightRotate(AVLTree* y){
+    AVLTree* x = y->left;
+    AVLTree* T2 = x->right;
+ 
+    x->right = y;
+    y->left = T2;
+ 
+    x->height = max(height(x->right), height(x->left)) + 1;
+    y->height = max(height(y->right), height(y->left)) + 1;
+ 
+    return x;
+}
+ 
+AVLTree* leftRotate(AVLTree* x){
+    AVLTree* y = x->right;
+    AVLTree* T2 = y->left;
+ 
+    y->left = x;
+    x->right = T2;
+ 
+    x->height = max(height(x->right), height(x->left)) + 1;
+    y->height = max(height(y->right), height(y->left)) + 1;
+ 
+    return y;
 }
 AVLTree* insert(AVLTree *node, int data)
 {
@@ -107,4 +133,21 @@ void preOrder(AVLTree *node)
         preOrder(node->right);
     } 
 
+}
+
+
+
+
+//#include "AVL.h"
+int main()
+{
+    AVLTree *root=NULL;
+    root=insert(root,1);
+    root=insert(root,2);
+    root=insert(root,4);
+    root=insert(root,5);
+    root=insert(root,6);
+    root=insert(root,3);
+    preOrder(root);
+    return 0;
 }
