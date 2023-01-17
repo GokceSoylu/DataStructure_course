@@ -1,5 +1,11 @@
 #include <stdio.h>//ekleme silem
-#define SIZE 5
+#define SIZE 10
+void swap(int *a, int *b)
+{
+    int tmp=*a;
+    *a=*b;
+    *b=tmp;
+}
 void insert(int *array, int data, int index)
 {
     if(index==SIZE)
@@ -13,12 +19,6 @@ void insert(int *array, int data, int index)
             index=index/2;
         }
     }
-}
-void swap(int *a, int *b)
-{
-    int *tmp=a;
-    a=b;
-    b=tmp;
 }
 int deleteToMax(int*array, int index)//index ilk boş elemenı gösteriri
 {
