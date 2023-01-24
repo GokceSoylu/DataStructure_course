@@ -2,12 +2,16 @@
 int main()
 {
     AVLTree *root=NULL;
-    root=insert(root,1);
-    root=insert(root,2);
-    root=insert(root,4);
-    root=insert(root,5);
-    root=insert(root,6);
-    root=insert(root,3);
+    root=insert(root,60);
+    root=insert(root,35);
+    root=insert(root,20);
+    root=insert(root,15);
+    root=insert(root,17);
+    root=insert(root,30);
+    root=insert(root,72);
+    root=insert(root,65);
+    root=insert(root,0);
+    
     preOrder(root);
     return 0;
 }
