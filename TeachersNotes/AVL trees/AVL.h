@@ -31,30 +31,6 @@ int getBalance(AVLTree *node)
     if(node==NULL) return 0;
     return height(node->left)-height(node->right);
 }
-/* wrong code from lecture
-AVLTree* rightRotate(AVLTree *z)
-{
-    AVLTree *y=z->left;
-    
-    z->left=y->right;
-    y->right=z;
-
-    z->height=1+max(z->left->height,z->right->height);
-    y->height=1+max(y->left->height,y->right->height);
-
-    return y;
-}
-AVLTree* leftRotate(AVLTree *z)
-{
-    AVLTree *x=z->right;
-    
-    x->left=z;
-
-    x->height=1+max(x->left->height,x->right->height);
-
-    return x;
-}*/
-
 AVLTree* rightRotate(AVLTree* y){
     AVLTree* x = y->left;
     AVLTree* T2 = x->right;
@@ -127,7 +103,7 @@ void preOrder(AVLTree *node)
 {
     if(node!=NULL)
     {
-        printf("\n%d",node->data);
+        printf("  %d",node->data);
         preOrder(node->left);
         preOrder(node->right);
     } 
