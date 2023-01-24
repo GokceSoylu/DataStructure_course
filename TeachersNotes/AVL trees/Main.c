@@ -9,9 +9,7 @@ int main()
     root=insert(root,17);
     root=insert(root,30);
     root=insert(root,72);
-    root=insert(root,65);
-    root=insert(root,0);
-    
+    root=insert(root,65);    
     preOrder(root);
     return 0;
 }

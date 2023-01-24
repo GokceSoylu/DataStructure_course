@@ -44,17 +44,17 @@ AVLTree* rightRotate(AVLTree* y){
     return x;
 }
  
-AVLTree* leftRotate(AVLTree* x){
-    AVLTree* y = x->right;
-    AVLTree* T2 = y->left;
+AVLTree* leftRotate(AVLTree* y){
+    AVLTree* x = y->right;
+    AVLTree* T2 = x->left;
  
-    y->left = x;
-    x->right = T2;
+    x->left = y;
+    y->right = T2;
  
-    x->height = max(height(x->right), height(x->left)) + 1;
     y->height = max(height(y->right), height(y->left)) + 1;
+    x->height = max(height(x->right), height(x->left)) + 1;
  
-    return y;
+    return x;
 }
 AVLTree* insert(AVLTree *node, int data)
 {
