@@ -96,3 +96,14 @@ BST delete(BST root,int data)
     root->right=delete(root->right,data);
     return root;
 }
+int numberOf_Nodes(BST node)
+{
+    if(node==NULL) return 0;
+    return numberOf_Nodes(node->left)+numberOf_Nodes(node->right)+1;
+}
+int parentNodes(BST node)
+{
+    if(node==NULL || node->left==NULL && node->right==NULL )  return 0;
+
+    return parentNodes(node->left)+parentNodes(node->right)+1;
+}

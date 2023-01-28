@@ -29,3 +29,7 @@ int maxDegree(int A[][5],int boyut)//graph taki en yüksek dereceyi bulur
     }  
     return max;  
 }
+int edgesList()
+{
+    
+}
